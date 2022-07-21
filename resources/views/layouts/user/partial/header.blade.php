@@ -1,3 +1,4 @@
+@if (url()->current() == '/')
 <section>
     <section class="nav-wrap">
          <!--navbar start-->
@@ -17,17 +18,16 @@
                  </li>
                  <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     Dropdown
+                     Profile
                      </a>
                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <li><a class="dropdown-item" href="#">Action</a></li>
-                     <li><a class="dropdown-item" href="#">Another action</a></li>
-                     <li><hr class="dropdown-divider"></li>
-                     <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        @if (Auth::check())
+                        <li><a class="dropdown-item" href="@route('home')">Dashboard</a></li>
+                        @else
+                        <li><a class="dropdown-item" href="@route('login')">Login</a></li>
+                        <li><a class="dropdown-item" href="@route('register')">Register</a></li>
+                        @endif
                      </ul>
-                 </li>
-                 <li class="nav-item">
-                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                  </li>
                  </ul>
              </div>
@@ -35,6 +35,7 @@
          </nav>
          <!--navbar end-->
          <!--banner area start-->
+         
          <section class=" my-5">
              <div class="row justify-content-center">
                  <div class="col-md-8 banner">
@@ -47,6 +48,40 @@
                  </div>
              </div>
          </section>
+        
          <!--banner end here-->
      </section>
 </section>
+@else 
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid container">
+    <a class="navbar-brand nav-title text-light" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+               @if (Auth::check())
+               <li><a class="dropdown-item" href="@route('home')">Dashboard</a></li>
+               @else
+               <li><a class="dropdown-item" href="@route('login')">Login</a></li>
+               <li><a class="dropdown-item" href="@route('register')">Register</a></li>
+               @endif
+            </ul>
+        </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+@endif
