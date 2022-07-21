@@ -34,7 +34,7 @@ font-family: 'Raleway', sans-serif; */
     color: var(--white);
 }
 
-/* banner */
+/* banner */ 
 .banner{
     margin-top: 10%;
 }
@@ -47,4 +47,21 @@ font-family: 'Raleway', sans-serif; */
 .banner-title>span{
     background-color: #d24524;
     border-radius: 5px;
+}
+
+/* service */
+.service{
+    color: #d24524;
+}
+.service-img>img{
+    height: 80px;
+    border-radius: 50px;
+    background: #000;
+}
+.service-img>img:hover{
+    background: #fff;
+}
+.service-img>p{
+    color: #d24524;
+    font-weight: bold;
 }
