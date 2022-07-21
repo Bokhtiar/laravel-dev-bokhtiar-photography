@@ -65,3 +65,15 @@ font-family: 'Raleway', sans-serif; */
     color: #d24524;
     font-weight: bold;
 }
+/* hire */
+.hire>.title{
+    color: #d24524;
+}
+.hire-img>img{
+    margin-top: 18%;
+}
+.hire-btn{
+    text-align: center;
+    background-color:#d24524;
+    color: white;
+}
