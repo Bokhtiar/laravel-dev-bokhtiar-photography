@@ -166,7 +166,7 @@ body{
     min-width: 260px;
   }
    
-  .btn{
+  /* .btn{
     padding: 18px 40px;
     font-size: 16px;
     color: #f1f1f1;
@@ -183,7 +183,7 @@ body{
   .btn:hover{
     opacity: .7;
   }
-   
+    */
   .page-content{
     min-height: 100vh;
     font-size: 40px;

@@ -66,7 +66,7 @@ class ProfileController extends Controller
 
                 if (!empty($gig)) {
                     DB::commit();
-                    return redirect()->route('profile.index')->with('success','Profile Created successfully!');
+                    return redirect()->route('profiles.index')->with('success','Profile Created successfully!');
                 }
                 throw new \Exception('Invalid About Information');
             }catch(\Exception $ex){

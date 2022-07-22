@@ -7,67 +7,26 @@
         <div class="col-md-8 text-center">
             <h2 class="my-5 service">Our Services</h2>
              <div class="row">
+                 @foreach ($servies as $s)
                  <div class="col-md-4 col-lg-4 col-sm-12 my-2">
-                     <div class="card">
-                         <div class="card-body">
-                             <div class="service-img">
-                                 <img class="button" src="{{asset('user')}}/w.png" alt="">
-                                 <p class="lead my-3">Wedding</p>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-md-4 col-lg-4 col-sm-12 my-2">
-                     <div class="card">
-                         <div class="card-body">
-                             <div class="service-img">
-                                 <img class="button" src="{{asset('user')}}/p.png" alt="">
-                                 <p class="lead my-3">Party</p>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-md-4 col-lg-4 col-sm-12 my-2">
-                     <div class="card">
-                         <div class="card-body">
-                             <div class="service-img">
-                                 <img class="button" src="{{asset('user')}}/b.png" alt="">
-                                 <p class="lead my-3">Birthday</p>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-
-                 <div class="col-md-4 col-lg-4 col-sm-12 my-2">
-                     <div class="card">
-                         <div class="card-body">
-                             <div class="service-img">
-                                 <img class="button" src="{{asset('user')}}/w.png" alt="">
-                                 <p class="lead my-3">Wedding</p>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-md-4 col-lg-4 col-sm-12 my-2">
-                     <div class="card">
-                         <div class="card-body">
-                             <div class="service-img">
-                                 <img class="button" src="{{asset('user')}}/p.png" alt="">
-                                 <p class="lead my-3">Party</p>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-md-4 col-lg-4 col-sm-12 my-2">
-                     <div class="card">
-                         <div class="card-body">
-                             <div class="service-img">
-                                 <img class="button" src="{{asset('user')}}/b.png" alt="">
-                                 <p class="lead my-3">Birthday</p>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="service-img">
+                                @php
+                                    $image = json_decode($s->image);
+                                @endphp
+                                @if (empty($image))
+                                    <td>Image Not Selected</td>
+                                @else
+                                <img class="button" src="{{ asset($image[0]) }}" alt="">
+                                @endif
+                               
+                                <p class="lead my-3">{{ $s->name }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 @endforeach
              </div>
         </div>
     </div>
@@ -79,74 +38,32 @@
  <div class="hire">
      <h2 class="text-center title"> Pupolar Photographer</h2>
      <div class="row">
+         @foreach ($photos as $photo)
          <div class="col-md-6 col-lg-6 col-12 col-sm-12 my-3">
-             <div class="card mb-3" style="max-width: 540px;">
-                 <div class="row g-0">
-                   <div class="col-md-4 hire-img">
-                     <img src="{{asset('user')}}/banner.jpg" class="img-fluid rounded-start" alt="...">
-                   </div>
-                   <div class="col-md-8">
-                     <div class="card-body">
-                       <h5 class="card-title">Card title</h5>
-                       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-         </div>
-
-         <div class="col-md-6 col-lg-6 col-12 col-sm-12 my-3">
-             <div class="card mb-3" style="max-width: 540px;">
-                 <div class="row g-0">
-                   <div class="col-md-4 hire-img">
-                     <img src="{{asset('user')}}/banner.jpg" class="img-fluid rounded-start" alt="...">
-                   </div>
-                   <div class="col-md-8">
-                     <div class="card-body">
-                       <h5 class="card-title">Card title</h5>
-                       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-         </div>
-
-         <div class="col-md-6 col-lg-6 col-12 col-sm-12 my-3">
-             <div class="card mb-3" style="max-width: 540px;">
-                 <div class="row g-0">
-                   <div class="col-md-4 hire-img">
-                     <img src="{{asset('user')}}/banner.jpg" class="img-fluid rounded-start" alt="...">
-                   </div>
-                   <div class="col-md-8">
-                     <div class="card-body">
-                       <h5 class="card-title">Card title</h5>
-                       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-         </div>
-
-         <div class="col-md-6 col-lg-6 col-12 col-sm-12 my-3">
-             <div class="card mb-3" style="max-width: 540px;">
-                 <div class="row g-0">
-                   <div class="col-md-4 hire-img">
-                     <img src="{{asset('user')}}/banner.jpg" class="img-fluid rounded-start" alt="...">
-                   </div>
-                   <div class="col-md-8">
-                     <div class="card-body">
-                       <h5 class="card-title">Card title</h5>
-                       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-         </div>
-
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4 hire-img">
+                    @php
+                    $image = json_decode($photo->image);
+                    @endphp
+                    @if (empty($image))
+                        <td>Image Not Selected</td>
+                    @else
+                    <img src="{{ asset($image[0]) }}" class="img-fluid rounded-start" alt="...">
+                    @endif
+                   
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ $photo->title }}</h5>
+                      <p class="card-text">{{ $photo->body }}</p>
+                        <a href="" class="btn btn-sm btn-outline-success">Hire me</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+         @endforeach
         
      </div>
      <div class="text-center">

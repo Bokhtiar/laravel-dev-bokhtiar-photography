@@ -6,7 +6,8 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\GigController;
 use App\Http\Controllers\ProfileController;
-
+use App\Models\Service;
+use App\Models\Profile;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +20,9 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
-    return view('user.index');
+    $servies = Service::all();
+    $photos = Profile::where('role_id', 3)->get();
+    return view('user.index', compact('servies', 'photos'));
 });
 
 Auth::routes();
