@@ -1,7 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.user.app')
 
-@section('content')
-<div class="container">
+@section('user_content')
+
+<div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -36,6 +37,18 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Select Role') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" name="role_id" id="">
+                                    <option value="2">User</option>
+                                    <option value="3">Photographer</option>
+                                </select>
+
                             </div>
                         </div>
 

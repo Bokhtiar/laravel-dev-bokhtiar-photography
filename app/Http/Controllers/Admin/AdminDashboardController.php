@@ -14,7 +14,7 @@ class AdminDashboardController extends Controller
      */
     public function index()
     {
-        return "admin dashboard";
+        return redirect()->route('home');
     }
 
     /**
