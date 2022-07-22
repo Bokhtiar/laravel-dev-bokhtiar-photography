@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -13,7 +16,18 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $edit = Profile::where('user_id', Auth::id())->first();
+            
+            if($edit){
+
+                return view('dashboard.modules.profile.index', compact('edit'));
+            }else{
+                return view('dashboard.modules.profile.index');
+            }
+            
+        } catch (\Throwable $th) {
+        }
     }
 
     /**
@@ -34,7 +48,32 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = Profile::query()->Validation($request->all());
+        if($validated){
+            try{
+                DB::beginTransaction();
+                $image = Profile::query()->Image($request);
+                $gig = Profile::create([
+                    'title' => $request->title,
+                    'user_id' => Auth::id(),
+                    'role_id' => Auth::user()->role_id,
+                    'phone' => $request->phone,
+                    'location' => $request->location,
+                    'body' => $request->body,
+                    'properties' => $request->properties,
+                    'image' => json_encode($image)
+                ]);
+
+                if (!empty($gig)) {
+                    DB::commit();
+                    return redirect()->route('profile.index')->with('success','Profile Created successfully!');
+                }
+                throw new \Exception('Invalid About Information');
+            }catch(\Exception $ex){
+                return back()->withError($ex->getMessage());
+                DB::rollBack();
+            }
+        }
     }
 
     /**
@@ -68,7 +107,39 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = Profile::query()->Validation($request->all());
+        if($validated){
+            try{
+                DB::beginTransaction();
+                $profile = Profile::find($id);
+                $reqImage = $request->image;
+                if($reqImage){
+                    $newimage = Profile::query()->Image($request);
+                }else{
+                    $image = $profile->image;
+                }
+                
+                $profileU = $profile->update([
+                    'title' => $request->title,
+                    'user_id' => Auth::id(),
+                    'role_id' => Auth::user()->role_id,
+                    'phone' => $request->phone,
+                    'location' => $request->location,
+                    'body' => $request->body,
+                    'properties' => $request->properties,
+                    'image' => $reqImage ? json_encode($newimage) : $image,
+                ]);
+
+                if (!empty($profileU)) {
+                    DB::commit();
+                    return redirect()->route('profiles.index')->with('success','Profile Created successfully!');
+                }
+                throw new \Exception('Invalid About Information');
+            }catch(\Exception $ex){
+                return back()->withError($ex->getMessage());
+                DB::rollBack();
+            }
+        }
     }
 
     /**

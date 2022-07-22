@@ -93,7 +93,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="@route('profiles.index')">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Profiles</span></a>
     </li>

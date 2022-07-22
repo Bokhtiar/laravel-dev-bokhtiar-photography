@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\GigController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::get('dashboard/logout', [App\Http\Controllers\SettingsController::class, 
 Route::resource('permission', PermissionController::class);
 Route::resource('services', ServiceController::class);
 Route::resource('gigs', GigController::class);
+Route::resource('profiles', ProfileController::class);
 
 Route::group([ "as"=>'user.' , "prefix"=>'user' , "namespace"=>'User' , "middleware"=>['auth','user']],function(){
     Route::get('/dashboard', [App\Http\Controllers\User\UserDashboardController::class, 'index'])->name('dashboard');
