@@ -36,6 +36,10 @@ Route::resource('services', ServiceController::class);
 Route::resource('gigs', GigController::class);
 Route::resource('profiles', ProfileController::class);
 
+
+// user
+Route::get('hire/me/{id}', [App\Http\Controllers\ProfileController::class, 'hire_me'])->name('hire.me');
+
 Route::group([ "as"=>'user.' , "prefix"=>'user' , "namespace"=>'User' , "middleware"=>['auth','user']],function(){
     Route::get('/dashboard', [App\Http\Controllers\User\UserDashboardController::class, 'index'])->name('dashboard');
 });

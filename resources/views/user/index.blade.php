@@ -57,7 +57,7 @@
                     <div class="card-body">
                       <h5 class="card-title">{{ $photo->title }}</h5>
                       <p class="card-text">{{ $photo->body }}</p>
-                        <a href="" class="btn btn-sm btn-outline-success">Hire me</a>
+                        <a href="@route('hire.me',$photo->profile_id )" class="btn btn-sm btn-outline-success">Hire me</a>
                     </div>
                   </div>
                 </div>

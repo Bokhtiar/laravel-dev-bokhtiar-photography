@@ -62,4 +62,9 @@ class Profile extends Model
        }
        return $image;
    }
+
+   public function user()
+   {
+       return $this->belongsTo(User::class);
+   }
 }
