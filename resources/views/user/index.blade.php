@@ -90,18 +90,19 @@
          </div>
      </div>
      <div class="col-md-6 col-lg-6 col-sm-12 col-12">
-         <form action="" method="post">
+         <form action="@route('contact.store')" method="post">
+            @csrf
              <div class="form-group my-2">
                  <label for="">Name</label>
-                 <input type="text" class="form-control" placeholder="Name" name="" id="">
+                 <input type="text" class="form-control" placeholder="Name" name="name" id="">
              </div>
              <div class="form-group my-2">
                  <label for="">Email</label>
-                 <input type="text" class="form-control" placeholder="Name" name="" id="">
+                 <input type="text" class="form-control" placeholder="E-mail" name="email" id="">
              </div>
              <div class="form-group my-2">
                  <label for="">Message</label>
-                 <textarea name="" class="form-control" id="" cols="10" rows="4"></textarea>
+                 <textarea name="message" class="form-control" id="" cols="10" rows="4"></textarea>
              </div>
              <div class="text-center">
                  <input type="submit" class="btn  hire-btn btn-outline-dark">
