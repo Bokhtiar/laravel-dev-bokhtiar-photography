@@ -63,66 +63,11 @@ class GigController extends Controller
     public function edit($id)
     {
         try {
-            $edit = Service::query()->FindID($id);
-        return view('admin.service.createOrUpdate', compact('edit'));
+            $edit = Gig::find($id);
+            $gigs = Gig::where('user_id', Auth::id())->get();
+        return view('dashboard.modules.gig.index', compact('edit', 'gigs'));
         } catch (\Throwable $th) {
             throw $th;
         }
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $validated = Service::query()->Validation($request->all());
-        if($validated){
-            try{
-                $update = Service::query()->FindID($id);
-                DB::beginTransaction();
-                $reqImage = $request->image;
-                if($reqImage){
-                    $newimage = Service::query()->Image($request);
-                }else{
-                    $image = $update->image;
-                }
-
-                $serviceU = $update->update([
-                    'name' => $request->name,
-                    'body' => $request->body,
-                    'image' => $reqImage ? json_encode($newimage) : $image,
-                ]);
-
-                if (!empty($serviceU)) {
-                    DB::commit();
-                    return redirect()->route('admin.service.index')->with('success','Service Created successfully!');
-                }
-                throw new \Exception('Invalid About Information');
-            }catch(\Exception $ex){
-                return back()->withError($ex->getMessage());
-                DB::rollBack();
-            }
-        }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        try {
-            Service::query()->FindID($id)->delete();
-            return redirect()->route('admin.service.index')->with('success','Service Delete successfully!');
-        } catch (\Throwable $th) {
-            throw $th;
-        }
-    }
-
 }
