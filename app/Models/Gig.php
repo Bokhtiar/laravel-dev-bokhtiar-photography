@@ -31,13 +31,13 @@ class Gig extends Model
     }
 
     public function scopeImage($value, $request){
-         $image = array();
-        if ($request->hasFile('image')) {
-            foreach ($request->image as $key => $photo) {
-                $path = $photo->store('service/photos');
-                array_push($image, $path);
-            }
-        }
-        return $image;
-    }
+        $image = array();
+       if ($request->hasFile('image')) {
+           foreach ($request->image as $key => $photo) {
+               $path = $photo->store('gig/photos/');
+               array_push($image, $path);
+           }
+       }
+       return $image;
+   }
 }

@@ -1,4 +1,4 @@
-@if (url()->current() == '/')
+@if (url()->current() == 'http://localhost:8000')
 <section>
     <section class="nav-wrap">
          <!--navbar start-->

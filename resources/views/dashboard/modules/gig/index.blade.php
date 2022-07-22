@@ -10,9 +10,9 @@
                     <div class="card-header">
                         <h3>Gig {{ @$edit ? 'Update' : 'Create' }}</h3>
                         @if (@$edit)
-                            <form action="" method="POST">
+                            <form action="" enctype="multipart/form-data" method="POST">
                         @else 
-                            <form action="@route('gig.store')" method="POST">
+                            <form action="@route('gigs.store')" enctype="multipart/form-data" method="POST">
                         @endif
                         @csrf
                         <div class="form-group">
@@ -58,34 +58,35 @@
             </div>
 
             <div class="col-md-8 col-lg-8 col-sm-12">
-                <section class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-10">                     
-                            <h2 class="text-center">Gig Lists</h2>
-                            <table class="table text-center">
-                                <thead>
-                                <tr>
-                                    <th scope="col">Sl</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($gigs as $gig)
-                                        <tr>
-                                            <th scope="row">{{$loop->index+1}}</th>
-                                            <td>{{$gig->title}}</td>
-                                            <td>
-                                                <a class="btn btn-info" href="@route('gig.edit',$gig->gig_id)">Edit</a>
-                                                <a class="btn btn-danger" href="">Delete</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Gig List</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            @foreach ($gigs as $item)
+                            <div class="col-md-6 col-lg-6 col-sm-12 my-4">
+                                <div class="card" style="width: 18rem;">
+                                    @php
+                                            $image = json_decode($item->image);
+                                        @endphp
+                                        @if (empty($image))
+                                            Image Not Selected
+                                        @else
+                                            <img height="200px" class="" src="{{ asset($image[0]) }}" height="50px"
+                                                     alt=""> 
+                                        @endif
+                                    
+                                    <div class="card-body">
+                                      <h5 class="card-title">{{ $item->title }}</h5>
+                                      <p class="card-text">{{ $item->body }}.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
     </section>

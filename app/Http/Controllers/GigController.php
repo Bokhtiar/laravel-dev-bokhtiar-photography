@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Gig;
-use DB;
-use Auth;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class GigController extends Controller
 {
@@ -33,16 +34,16 @@ class GigController extends Controller
             try{
                 DB::beginTransaction();
                 $image = Gig::query()->Image($request);
-                $service = Gig::create([
+                $gig = Gig::create([
                     'title' => $request->title,
                     'user_id' => Auth::id(),
                     'body' => $request->body,
                     'image' => json_encode($image)
                 ]);
 
-                if (!empty($service)) {
+                if (!empty($gig)) {
                     DB::commit();
-                    return redirect()->route('gig.index')->with('success','Gig Created successfully!');
+                    return redirect()->route('gigs.index')->with('success','Gig Created successfully!');
                 }
                 throw new \Exception('Invalid About Information');
             }catch(\Exception $ex){
