@@ -35,8 +35,8 @@ Route::resource('permission', PermissionController::class);
 Route::resource('services', ServiceController::class);
 Route::resource('gigs', GigController::class);
 Route::resource('profiles', ProfileController::class);
-
-
+// more/photographer
+Route::get('more/photographer', [App\Http\Controllers\PhotographerController::class, 'index'])->name('more.photographer');
 // user
 Route::get('hire/me/{id}', [App\Http\Controllers\ProfileController::class, 'hire_me'])->name('hire.me');
 

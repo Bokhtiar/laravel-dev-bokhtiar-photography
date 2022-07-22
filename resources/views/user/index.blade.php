@@ -67,7 +67,7 @@
         
      </div>
      <div class="text-center">
-         <a class="btn btn-outline-dark text-center hire-btn" href="">More Photographer</a>
+         <a class="btn btn-outline-dark text-center hire-btn" href="@route('more.photographer')">More Photographer</a>
      </div>
  </div>
 </section>
