@@ -37,6 +37,9 @@ Route::resource('gigs', GigController::class);
 Route::resource('profiles', ProfileController::class);
 // more/photographer
 Route::get('more/photographer', [App\Http\Controllers\PhotographerController::class, 'index'])->name('more.photographer');
+Route::get('photographer/hire/{p_id}/{user_id}/{photographer_id}', [App\Http\Controllers\HireController::class, 'store'])->name('photographer.hire');
+// Route::get('/posts/show/{id}/{name}',[App\Http\Controllers\HireController::class, 'store'])->name('post.show');
+
 //contact
 Route::post('contact/store', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
 Route::get('contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');

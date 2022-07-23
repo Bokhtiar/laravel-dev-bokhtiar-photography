@@ -93,7 +93,8 @@
                         <div class="card-body">
                         <h5 class="card-title">{{ $p['title'] }} || {{ $p['price'] }}</h5>
                         <p class="card-text">{{ $p['description'] }}.</p>
-                        <a href="#" class="btn btn-primary">Hire Me</a>
+                        
+                        <a class="btn btn-success" href="{{route('photographer.hire',['p_id'=>$p['id'],'user_id'=>Auth::id(), 'photographer_id'=>$show->user_id])}}">Hire Me</a>
                         </div>
                     </div>
                     @endif
