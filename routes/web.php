@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PermissionController;
@@ -35,6 +36,7 @@ Route::resource('permission', PermissionController::class);
 Route::resource('services', ServiceController::class);
 Route::resource('gigs', GigController::class);
 Route::resource('profiles', ProfileController::class);
+Route::resource('gallery', GalleryController::class);
 // more/photographer
 Route::get('more/photographer', [App\Http\Controllers\PhotographerController::class, 'index'])->name('more.photographer');
 Route::get('photographer/hire/{title}/{price}/{user_id}/{photographer_id}', [App\Http\Controllers\HireController::class, 'store'])->name('photographer.hire');

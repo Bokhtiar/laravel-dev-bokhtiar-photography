@@ -50,6 +50,24 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefour"
+            aria-expanded="true" aria-controls="collapsefour">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Gallery </span>
+        </a>
+        <div id="collapsefour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="@route('gallery.index')">List Of Gallery</a>
+            </div>
+        </div>
+        <div id="collapsefour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="@route('gallery.create')">Create Of Gallery</a>
+            </div>
+        </div> 
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="@route('hire.list')">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Request</span></a>

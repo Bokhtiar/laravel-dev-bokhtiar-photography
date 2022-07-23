@@ -21,7 +21,6 @@ class ProfileController extends Controller
             $edit = Profile::where('user_id', Auth::id())->first();
             
             if($edit){
-
                 return view('dashboard.modules.profile.index', compact('edit'));
             }else{
                 return view('dashboard.modules.profile.index');
