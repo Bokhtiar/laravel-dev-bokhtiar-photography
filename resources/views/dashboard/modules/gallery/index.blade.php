@@ -1,5 +1,5 @@
 @extends('layouts.dashboard.app')
-@section('title', 'List Of Service')
+@section('title', 'List Of gallery')
 @section('css')
     <style>
         .zoom:hover {
@@ -11,12 +11,12 @@
 @section('dashboard_content')
 
     <div class="pagetitle">
-        <h1>Service Tables</h1>
+        <h1>gallery Tables</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item">Tables</li>
-                <li class="breadcrumb-item active">Service Table</li>
+                <li class="breadcrumb-item active">gallery Table</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -33,23 +33,24 @@
                         @endif
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Service Table</h5>
+                        <h5 class="card-title">gallery Table</h5>
 
                         <!-- Table with stripped rows -->
                         <table class="table datatable">
                             <thead>
                                 <tr>
                                     <th scope="col">SL</th>
-                                    <th scope="col">Name</th>
+                                    <th scope="col">Title</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($servies as $item)
+                                @forelse ($galleries as $item)
                                     <tr>
+                                       
                                         <th scope="row">{{ $loop->index + 1 }}</th>
-                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->title }}</td>
                                         @php
                                             $image = json_decode($item->image);
                                         @endphp
@@ -63,8 +64,8 @@
                                         
                                         <td class="form-inline">
                                            
-                                            <a class="btn btn-sm btn-primary" href="@route('services.edit', $item->service_id)"> Edit</a>
-                                            <form method="POST" action="@route('services.destroy',$item->service_id)">
+                                            
+                                            <form method="POST" action="@route('gallery.destroy',$item->gallery_id)">
                                                 @csrf
                                                 @method('Delete')
                                                 <button class="btn btn-sm btn-danger" type="submit"> Delete</button>
@@ -74,7 +75,7 @@
                                         </td>
                                     </tr>
                                 @empty
-                                    <h2 class="bg-danger text-light text-center">Service Is empty</h2>
+                                    <h2 class="bg-danger text-light text-center">gallery Is empty</h2>
                                 @endforelse
                             </tbody>
                         </table>

@@ -15,7 +15,12 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $galleries = Gallery::all();
+            return view('dashboard.modules.gallery.index', compact('galleries'));
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     /**
@@ -58,40 +63,7 @@ class GalleryController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
+ 
     /**
      * Remove the specified resource from storage.
      *
@@ -100,6 +72,11 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            Gallery::find($id)->delete();
+            return redirect()->route('gallery.index');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }
