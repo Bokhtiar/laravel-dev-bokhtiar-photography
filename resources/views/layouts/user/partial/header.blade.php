@@ -4,18 +4,27 @@
          <!--navbar start-->
          <nav class="navbar navbar-expand-lg">
              <div class="container-fluid container">
-             <a class="navbar-brand nav-title" href="#">Navbar</a>
+             <a class="navbar-brand nav-title" href="{{ url('/') }}">Navbar</a>
              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                  <span class="navbar-toggler-icon"></span>
              </button>
              <div class="collapse navbar-collapse" id="navbarSupportedContent">
                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                  <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="#">Home</a>
+                     <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
                  </li>
                  <li class="nav-item">
-                     <a class="nav-link" href="#">Link</a>
+                     <a class="nav-link" href="{{ url('more/photographer') }}">Photographer</a>
                  </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}#gallery">Gallery</a>
+                </li>
                  <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                      Profile
@@ -43,7 +52,7 @@
                      <h2 class="text-center">Lound apperarance for your brand</h2>
                      <p class="text-center">Get Started. Build a memorable photography website with designer-made templates and a variety of dedicated features. Showcase your work with a photography portfolio, client galleries and an </p>
                      <div class="text-center">
-                         <button class="btn btn-outline-success">Checkout photographer</button>
+                         <a href="{{ url('more/photographer') }}" class="btn btn-outline-success">Hire photographer</a>
                      </div>
                  </div>
              </div>
@@ -55,18 +64,24 @@
 @else 
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container-fluid container">
-    <a class="navbar-brand nav-title text-light" href="#">Navbar</a>
+    <a class="navbar-brand nav-title text-light" href="{{ url('/') }}">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-            <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+            <a class="nav-link active text-light" aria-current="page" href="{{ url('/') }}">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-light" href="#">Link</a>
+            <a class="nav-link" href="{{ url('more/photographer') }}">Photographer</a>
         </li>
+        <li class="nav-item">
+           <a class="nav-link" href="{{ url('/') }}#contact">Contact</a>
+       </li>
+       <li class="nav-item">
+           <a class="nav-link" href="{{ url('/') }}#about">About</a>
+       </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Profile

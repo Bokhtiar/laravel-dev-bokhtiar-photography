@@ -32,4 +32,15 @@ class PermissionController extends Controller
         $permission = Permission::find($id);
         return view('dashboard.modules.permission.edit', compact('permission'));
     }
+
+    public function update(Request $request, $id)
+    {
+        try {
+            $permission = Permission::find($id);
+        $permission->update($request->all());
+        return redirect()->route('permission.index')->with('success', 'Updated Successfully');
+        } catch (\Throwable $th) {
+            return redirect()->route('permission.index')->with('error', 'Someting Wrong');
+        }
+    }
 }

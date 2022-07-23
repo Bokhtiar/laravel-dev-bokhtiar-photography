@@ -88,7 +88,9 @@ font-family: 'Raleway', sans-serif; */
     font-weight: bold;
     font-size: 70px;
 }
-
+.title{
+  color: #d24524;
+}
 /* footer */
 body{
     margin: 0;

@@ -9,8 +9,18 @@ use App\Models\User;
 class Role extends Model
 {
     use HasFactory;
-    public function user()
-    {
+    protected $fillable = [
+        'name',
+    ];
+
+
+
+    public function users(){
         return $this->hasMany(User::class);
+    }
+
+    public function permission()
+    {
+       return $this->hasOne(Permission::class);
     }
 }

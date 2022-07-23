@@ -63,12 +63,48 @@
                         <td><input type="checkbox" name="permission[user][list]" value="1"></td>
                     </tr>
                     <tr>
-                        <td>Category</td>
-                        <td><input type="checkbox" name="permission[category][add]" value="1"></td>
-                        <td><input type="checkbox" name="permission[category][edit]" value="1"></td>
-                        <td><input type="checkbox" name="permission[category][view]" value="1"></td>
-                        <td><input type="checkbox" name="permission[category][delete]" value="1"></td>
-                        <td><input type="checkbox" name="permission[category][list]" value="1"></td>
+                        <td>Service</td>
+                        <td><input type="checkbox" name="permission[service][add]" value="1"></td>
+                        <td><input type="checkbox" name="permission[service][edit]" value="1"></td>
+                        <td><input type="checkbox" name="permission[service][view]" value="1"></td>
+                        <td><input type="checkbox" name="permission[service][delete]" value="1"></td>
+                        <td><input type="checkbox" name="permission[service][list]" value="1"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Contact</td>
+                        <td><input type="checkbox" name="permission[contact][add]" value="1"></td>
+                        <td><input type="checkbox" name="permission[contact][edit]" value="1"></td>
+                        <td><input type="checkbox" name="permission[contact][view]" value="1"></td>
+                        <td><input type="checkbox" name="permission[contact][delete]" value="1"></td>
+                        <td><input type="checkbox" name="permission[contact][list]" value="1"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Gig</td>
+                        <td><input type="checkbox" name="permission[gig][add]" value="1"></td>
+                        <td><input type="checkbox" name="permission[gig][edit]" value="1"></td>
+                        <td><input type="checkbox" name="permission[gig][view]" value="1"></td>
+                        <td><input type="checkbox" name="permission[gig][delete]" value="1"></td>
+                        <td><input type="checkbox" name="permission[gig][list]" value="1"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Gallery</td>
+                        <td><input type="checkbox" name="permission[gallery][add]" value="1"></td>
+                        <td><input type="checkbox" name="permission[gallery][edit]" value="1"></td>
+                        <td><input type="checkbox" name="permission[gallery][view]" value="1"></td>
+                        <td><input type="checkbox" name="permission[gallery][delete]" value="1"></td>
+                        <td><input type="checkbox" name="permission[gallery][list]" value="1"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Request</td>
+                        <td><input type="checkbox" name="permission[request][add]" value="1"></td>
+                        <td><input type="checkbox" name="permission[request][edit]" value="1"></td>
+                        <td><input type="checkbox" name="permission[request][view]" value="1"></td>
+                        <td><input type="checkbox" name="permission[request][delete]" value="1"></td>
+                        <td><input type="checkbox" name="permission[request][list]" value="1"></td>
                     </tr>
 
                     </tbody>

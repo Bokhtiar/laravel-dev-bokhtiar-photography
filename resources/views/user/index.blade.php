@@ -40,7 +40,7 @@
      <div class="row">
          @foreach ($photos as $photo)
          <div class="col-md-6 col-lg-6 col-12 col-sm-12 my-3">
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3" style="max-width: 540px; height:200px">
                 <div class="row g-0">
                   <div class="col-md-4 hire-img">
                     @php
@@ -66,16 +66,31 @@
          @endforeach
         
      </div>
-     <div class="text-center">
-         <a class="btn btn-outline-dark text-center hire-btn" href="@route('more.photographer')">More Photographer</a>
+     <div class="float-right">
+         <a class="btn btn-outline-dark float-right hire-btn" href="@route('more.photographer')">More Photographer</a>
      </div>
  </div>
 </section>
 <!--end photograper-->
 
 
+<!--about us start -->
+<section>
+    <h2>About-us</h2>
+    <div class="row">
+        <div class="col-md-5 col-lg-5 col-sm-12">
+            <img src="" alt="">
+        </div>
+        <div class="col-md-7 col-lg-7 col-sm-12"></div>
+    </div>
+</section>
+<!--about us end -->
+
+
+
 <!--contact start-->
-<section class="my-5 container">
+<section class="my-5 container" id="contact">
+    <h2 class="text-center title"> Contact-us</h2>
  <section class="row">
      <div class="col-md-6 col-lg-6 col-sm-12 col-12">
          <div class="contact">
@@ -114,7 +129,7 @@
 <!--contact end-->
 
 <!--photo gallery start-->
-<section class="my-5 container">
+<section class="my-5 container" id="gallery">
     <div class="gallery">
          <h2 class="text-center title"> Photo Gallery</h2>
     </div>
