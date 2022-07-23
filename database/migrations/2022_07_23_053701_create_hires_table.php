@@ -17,7 +17,9 @@ class CreateHiresTable extends Migration
             $table->id('hire_id');
             $table->integer('user_id');
             $table->integer('photographer_id');
-            $table->integer('price_id');
+            $table->string('title');
+            $table->string('price');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

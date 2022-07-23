@@ -49,6 +49,11 @@
         </div> 
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="@route('hire.list')">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Request</span></a>
+        </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
