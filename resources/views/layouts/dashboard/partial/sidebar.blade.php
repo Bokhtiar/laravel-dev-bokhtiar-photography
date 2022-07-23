@@ -79,4 +79,11 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Profiles</span></a>
     </li>
+
+       <!-- Nav Item - Charts -->
+       <li class="nav-item">
+        <a class="nav-link" href="@route('contact')">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Contact's</span></a>
+        </li>
 </ul>
